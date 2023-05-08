@@ -21,11 +21,11 @@ public class LoginRepository {
     }
 
     public WebElement avatarIcon(WebDriverWait wait){
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[@id='user-options']")));
+        return wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@id='header-details-user-fullname']")));
     }
 
     public WebElement profileOption(WebDriverWait wait){
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@id='view_profile']")));
+        return wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@id='view_profile']")));
     }
 
     public WebElement logOutOption(WebDriverWait wait){

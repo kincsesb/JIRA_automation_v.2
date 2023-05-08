@@ -27,6 +27,7 @@ public class LoginTest {
     private LoginRepository repository;
 
     private Sheet sheet1;
+    private Sheet sheet2;
 
     @BeforeEach
     public void SetUp() throws IOException {
@@ -39,7 +40,7 @@ public class LoginTest {
 
         repository = new LoginRepository();
 
-        FileInputStream fis = new FileInputStream(new File("/Users/kincsesbence/Desktop/TestAutomation_Module/JIRA_automation_v.2/src/main/Névtelen táblázat.xlsx"));
+        FileInputStream fis = new FileInputStream(new File("\\F:\\TW3\\JIRA_automation_v.2\\src\\main\\Névtelen táblázat.xlsx\\"));
         Workbook workbook = new XSSFWorkbook(fis);
         sheet1 = workbook.getSheet("Users");
     }
