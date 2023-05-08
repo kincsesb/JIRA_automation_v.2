@@ -40,7 +40,7 @@ public class LoginTest {
 
         repository = new LoginRepository();
 
-        FileInputStream fis = new FileInputStream(new File("\\F:\\TW3\\JIRA_automation_v.2\\src\\main\\Névtelen táblázat.xlsx\\"));
+        FileInputStream fis = new FileInputStream(new File("/Users/kincsesbence/Desktop/TestAutomation_Module/JIRA_automation_v.2/src/main/Névtelen táblázat.xlsx"));
         Workbook workbook = new XSSFWorkbook(fis);
         sheet1 = workbook.getSheet("Users");
     }
