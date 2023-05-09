@@ -26,7 +26,7 @@ public class CreateIssueRepository {
     }
 
     public WebElement DynamicProject(String projectName){
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[normalize-space()='" + projectName + "']")));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li//a[@role='presentation'][contains(text(),'" + projectName + "')]")));
     }
 
     public WebElement IssueTypeOptionOnCreateIssueScreen(){
@@ -38,11 +38,11 @@ public class CreateIssueRepository {
     }
 
     public WebElement DynamicIssueType(String type){
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[normalize-space()='" + type + "']")));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'" + type + "')]")));
     }
 
     public WebElement SummaryInputFieldOnCreateScreen(){
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='summary']")));
+        return wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='summary']")));
     }
 
     public WebElement CreateButtonOnCreateScreen(){
@@ -61,9 +61,6 @@ public class CreateIssueRepository {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#type-val")));
     }
 
-    public WebElement IssueOwnerOnCreatedIssue(){
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='reporter-val']")));
-    }
     public WebElement ProjectOnCreatedIssue(){
         return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@id='project-name-val']")));
     }

@@ -21,11 +21,11 @@ public class CreateIssue {
         String [] projectName = project.split(" \\(");
 
         boolean projectResult = createIssueRepository.ProjectOnCreatedIssue().getText().equals(projectName[0]);
-
+        System.out.print(createIssueRepository.ProjectOnCreatedIssue().getText());
         boolean summaryResult = createIssueRepository.SummaryOnCreatedIssue().getText().equals(summary);
-
+        System.out.print(createIssueRepository.SummaryOnCreatedIssue().getText());
         boolean issueTypeResult = createIssueRepository.IssueTypeOnCreatedIssue().getText().equals(type);
-
+        System.out.print(createIssueRepository.IssueTypeOnCreatedIssue().getText());
         boolean result = projectResult && summaryResult && issueTypeResult;
 
         return result;

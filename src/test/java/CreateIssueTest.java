@@ -44,21 +44,46 @@ public class CreateIssueTest {
 
     @ParameterizedTest
     @CsvSource({
-            "Main Testing Project (MTP), Task, asd123",
-            "Main Testing Project (MTP), Task, !@#%&*",
-            "JETI project (JETI), Story, asd123",
-            "JETI project (JETI), Task, asd123",
-            "JETI project (JETI), Bug, asd123",
-            "COALA project (COALA), Story, asd123",
-            "COALA project (COALA), Task, asd123",
-            "COALA project (COALA), Bug, asd123",
-            "TOUCAN project (TOUCAN), Story, asd123",
-            "TOUCAN project (TOUCAN), Task, asd123",
-            "TOUCAN project (TOUCAN), Bug, asd123",
+            "Main Testing Project (MTP),Task,asd123",
+            "Main Testing Project (MTP),Task,!@#%&*",
     })
-    public void SuccessfulCreateTaskOnMTP(String projectName, String issueType, String summary){
-        boolean isSuccessful = createIssue.successfulCreateIssue(projectName,issueType,summary);
+    public void SuccessfulCreateTaskOnMTP(String projectName, String issueType, String summary) {
+        boolean isSuccessful = createIssue.successfulCreateIssue(projectName, issueType, summary);
 
-        assertEquals(isSuccessful,true);
+        assertEquals(isSuccessful, true);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "JETI project (JETI),Story,asd123",
+            "JETI project (JETI),Task,asd123",
+            "JETI project (JETI),Bug,asd123",
+    })
+    public void SuccessfulCreateIssueOnJETI(String projectName, String issueType, String summary) {
+        boolean isSuccessful = createIssue.successfulCreateIssue(projectName, issueType, summary);
+
+        assertEquals(isSuccessful, true);
+    }
+    @ParameterizedTest
+    @CsvSource({
+            "COALA project (COALA),Story,asd123",
+            "COALA project (COALA),Task,asd123",
+            "COALA project (COALA),Bug,asd123",
+    })
+    public void SuccessfulCreateIssueOnCOALA(String projectName, String issueType, String summary) {
+        boolean isSuccessful = createIssue.successfulCreateIssue(projectName, issueType, summary);
+
+        assertEquals(isSuccessful, true);
+    }
+    @ParameterizedTest
+    @CsvSource({
+            "TOUCAN project (TOUCAN),Story,asd123",
+            "TOUCAN project (TOUCAN),Task,asd123",
+            "TOUCAN project (TOUCAN),Bug,asd123",
+    })
+    public void SuccessfulCreateIssueOnTOUCAN(String projectName, String issueType, String summary) {
+        boolean isSuccessful = createIssue.successfulCreateIssue(projectName, issueType, summary);
+
+        assertEquals(isSuccessful, true);
     }
 }
