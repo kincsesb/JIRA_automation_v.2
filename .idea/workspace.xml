@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2df61697-7025-4271-a338-be95f084c895" name="Changes" comment="Add logout test" />
+    <list default="true" id="2df61697-7025-4271-a338-be95f084c895" name="Changes" comment="Repair the project and issuetype in  CreateIssueRepository">
+      <change afterPath="$PROJECT_DIR$/src/main/Névtelen táblázat.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreateIssue/CreateIssue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateIssue/CreateIssue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreateIssue/CreateIssueRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateIssue/CreateIssueRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CreateIssueTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CreateIssueTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classpath.index" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/classpath.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/classpath.index" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/classpath.index" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,64 +39,67 @@
     </option>
   </component>
   <component name="ProjectId" id="2PVLS3xWnmc3h6vSTdk5rCBPHre" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "/Users/kincsesbence/Desktop/TestAutomation_Module/JIRA_automation_v.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kincsesbence/Desktop/TestAutomation_Module/JIRA_automation_v.2&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="JUnit.LoginTest.succesfulLogin">
-    <configuration name="LogOutTest.successfulLogOut" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+}</component>
+  <component name="RunManager" selected="JUnit.CreateIssueTest.SuccessfulCreateTaskOnMTP (1)">
+    <configuration name="CreateIssueTest.CreateTestWithEmptySummary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="POM_KDT_With_Maven" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="LogOutTest" />
-      <option name="METHOD_NAME" value="successfulLogOut" />
+      <option name="MAIN_CLASS_NAME" value="CreateIssueTest" />
+      <option name="METHOD_NAME" value="CreateTestWithEmptySummary" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.isCaptchaWorksCorrectly" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CreateIssueTest.SuccessfulCreateIssueOnCOALA" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="POM_KDT_With_Maven" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="LoginTest" />
-      <option name="METHOD_NAME" value="isCaptchaWorksCorrectly" />
+      <option name="MAIN_CLASS_NAME" value="CreateIssueTest" />
+      <option name="METHOD_NAME" value="SuccessfulCreateIssueOnCOALA(java.lang.String,java.lang.String,java.lang.String)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.leaveTheLoginFieldEmpty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CreateIssueTest.SuccessfulCreateIssueOnJETI" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="POM_KDT_With_Maven" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="LoginTest" />
-      <option name="METHOD_NAME" value="leaveTheLoginFieldEmpty" />
+      <option name="MAIN_CLASS_NAME" value="CreateIssueTest" />
+      <option name="METHOD_NAME" value="SuccessfulCreateIssueOnJETI(java.lang.String,java.lang.String,java.lang.String)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.loginWithValidUsernameAndInvalidPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CreateIssueTest.SuccessfulCreateIssueOnTOUCAN" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="POM_KDT_With_Maven" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="LoginTest" />
-      <option name="METHOD_NAME" value="loginWithValidUsernameAndInvalidPassword" />
+      <option name="MAIN_CLASS_NAME" value="CreateIssueTest" />
+      <option name="METHOD_NAME" value="SuccessfulCreateIssueOnTOUCAN(java.lang.String,java.lang.String,java.lang.String)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.succesfulLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CreateIssueTest.SuccessfulCreateTaskOnMTP (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="POM_KDT_With_Maven" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="LoginTest" />
-      <option name="METHOD_NAME" value="succesfulLogin" />
+      <option name="MAIN_CLASS_NAME" value="CreateIssueTest" />
+      <option name="METHOD_NAME" value="SuccessfulCreateTaskOnMTP(java.lang.String,java.lang.String,java.lang.String)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -96,11 +107,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.LoginTest.succesfulLogin" />
-        <item itemvalue="JUnit.LogOutTest.successfulLogOut" />
-        <item itemvalue="JUnit.LoginTest.isCaptchaWorksCorrectly" />
-        <item itemvalue="JUnit.LoginTest.leaveTheLoginFieldEmpty" />
-        <item itemvalue="JUnit.LoginTest.loginWithValidUsernameAndInvalidPassword" />
+        <item itemvalue="JUnit.CreateIssueTest.SuccessfulCreateTaskOnMTP (1)" />
+        <item itemvalue="JUnit.CreateIssueTest.CreateTestWithEmptySummary" />
+        <item itemvalue="JUnit.CreateIssueTest.SuccessfulCreateIssueOnJETI" />
+        <item itemvalue="JUnit.CreateIssueTest.SuccessfulCreateIssueOnCOALA" />
+        <item itemvalue="JUnit.CreateIssueTest.SuccessfulCreateIssueOnTOUCAN" />
       </list>
     </recent_temporary>
   </component>
@@ -127,12 +138,53 @@
       <option name="project" value="LOCAL" />
       <updated>1683539205756</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add logout and login tests">
+      <created>1683540384886</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1683540384887</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add Browse project tests and repository.">
+      <created>1683545846153</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1683545846153</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Update the browse projects.">
+      <created>1683548833102</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1683548833102</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add Create Issue tests and repository">
+      <created>1683619181701</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1683619181701</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Repair the project and issuetype in  CreateIssueRepository">
+      <created>1683626516514</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1683626516514</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Add login tests" />
     <MESSAGE value="Add logout test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add logout test" />
+    <MESSAGE value="Add logout and login tests" />
+    <MESSAGE value="Add Browse project tests and repository." />
+    <MESSAGE value="Update the browse projects." />
+    <MESSAGE value="Add Create Issue tests and repository" />
+    <MESSAGE value="Repair the project and issuetype in  CreateIssueRepository" />
+    <option name="LAST_COMMIT_MESSAGE" value="Repair the project and issuetype in  CreateIssueRepository" />
   </component>
 </project>

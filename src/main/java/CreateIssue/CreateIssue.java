@@ -1,13 +1,18 @@
 package CreateIssue;
 
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CreateIssue {
 
     private WebDriverWait wait;
+    private WebDriver driver;
     public CreateIssueRepository createIssueRepository;
 
-    public CreateIssue(WebDriverWait Wait){
+    public CreateIssue(WebDriverWait Wait, WebDriver Driver){
+        this.driver = Driver;
         this.wait = Wait;
         createIssueRepository = new CreateIssueRepository(wait);
     }
@@ -37,12 +42,20 @@ public class CreateIssue {
 
         if(!createIssueRepository.ActualProjectNameOnCreateScreen().getAttribute("value").equals(project)){
             createIssueRepository.ProjectOptionOnCreateScreen().click();
-            createIssueRepository.DynamicProject(project).click();
+
+            ((JavascriptExecutor) driver).executeScript("arguments[0].value = '';", createIssueRepository.ProjectInputField());
+
+            createIssueRepository.ProjectInputField().sendKeys(project);
+            createIssueRepository.ProjectInputField().sendKeys(Keys.ENTER);
         }
 
         if(!createIssueRepository.ActualIssueType().getAttribute("value").equals(type)){
             createIssueRepository.IssueTypeOptionOnCreateIssueScreen().click();
-            createIssueRepository.DynamicIssueType(type).click();
+
+            ((JavascriptExecutor) driver).executeScript("arguments[0].value = '';", createIssueRepository.IssueInputField());
+
+            createIssueRepository.IssueInputField().sendKeys(type);
+            createIssueRepository.IssueInputField().sendKeys(Keys.ENTER);
         }
 
         createIssueRepository.SummaryInputFieldOnCreateScreen().sendKeys(summary);
@@ -60,4 +73,5 @@ public class CreateIssue {
 
         return result;
     }
+
 }

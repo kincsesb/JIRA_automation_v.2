@@ -25,12 +25,23 @@ public class CreateIssueRepository {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='project-field']")));
     }
 
-    public WebElement DynamicProject(String projectName){
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li//a[@role='presentation'][contains(text(),'" + projectName + "')]")));
+    public WebElement DynamicProject(String projectName) {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@role='presentation'][contains(text(), '" + projectName + "')]")));
     }
 
+    public WebElement ProjectInputField(){
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='project-field']")));
+    }
+
+    public WebElement SummaryErrorMessageOnCreateScreen(){
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='project-field']")));
+    }
     public WebElement IssueTypeOptionOnCreateIssueScreen(){
         return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//label[@for='issuetype-field']")));
+    }
+
+    public WebElement IssueInputField(){
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='issuetype-field']")));
     }
 
     public WebElement ActualIssueType(){
@@ -38,7 +49,7 @@ public class CreateIssueRepository {
     }
 
     public WebElement DynamicIssueType(String type){
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'" + type + "')]")));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li//a[contains(text(),'" + type + "')]")));
     }
 
     public WebElement SummaryInputFieldOnCreateScreen(){

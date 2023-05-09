@@ -29,7 +29,7 @@ public class CreateIssueTest {
         driver = new ChromeDriver(options);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        createIssue = new CreateIssue(wait);
+        createIssue = new CreateIssue(wait,driver);
 
         loginPage = new LoginPage(driver);
 
@@ -85,5 +85,15 @@ public class CreateIssueTest {
         boolean isSuccessful = createIssue.successfulCreateIssue(projectName, issueType, summary);
 
         assertEquals(isSuccessful, true);
+    }
+
+    @Test
+    public void CreateTestWithEmptySummary(){
+        createIssue.createIssueRepository.CreateButton().click();
+        createIssue.createIssueRepository.CreateButtonOnCreateScreen().click();
+
+        boolean isErrorMessageDisplayed = createIssue.createIssueRepository.SummaryErrorMessageOnCreateScreen().isDisplayed();
+
+        assertEquals(isErrorMessageDisplayed,true);
     }
 }
