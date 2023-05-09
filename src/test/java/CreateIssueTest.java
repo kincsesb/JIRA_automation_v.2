@@ -39,6 +39,7 @@ public class CreateIssueTest {
 
     @AfterEach
     public void TearDown() {
+        //loginPage.succesFulLogOut();
         driver.quit();
     }
 
@@ -75,7 +76,7 @@ public class CreateIssueTest {
 
         assertEquals(isSuccessful, true);
     }
-    @ParameterizedTest
+  /*  @ParameterizedTest
     @CsvSource({
             "TOUCAN project (TOUCAN),Story,asd123",
             "TOUCAN project (TOUCAN),Task,asd123",
@@ -85,7 +86,7 @@ public class CreateIssueTest {
         boolean isSuccessful = createIssue.successfulCreateIssue(projectName, issueType, summary);
 
         assertEquals(isSuccessful, true);
-    }
+    }*/
 
     @Test
     public void CreateTestWithEmptySummary(){

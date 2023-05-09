@@ -41,11 +41,11 @@ public class CreateIssueRepository {
     }
 
     public WebElement IssueInputField(){
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='issuetype-field']")));
+        return wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='issuetype-field']")));
     }
 
     public WebElement ActualIssueType(){
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='issuetype-field']")));
+        return wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='issuetype-field']")));
     }
 
     public WebElement DynamicIssueType(String type){

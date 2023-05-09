@@ -39,7 +39,7 @@ public class LogOutTest {
 
         repository = new LoginRepository();
 
-        FileInputStream fis = new FileInputStream(new File("\\F:\\TW3\\JIRA_automation_v.2\\src\\main\\Névtelen táblázat.xlsx\\"));
+        FileInputStream fis = new FileInputStream(new File("\\F:\\TW3\\Nevtelen_tablazat.xlsx\\"));
         Workbook workbook = new XSSFWorkbook(fis);
         sheet1 = workbook.getSheet("Users");
     }

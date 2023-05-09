@@ -11,19 +11,19 @@ public class CreateIssue {
     private WebDriver driver;
     public CreateIssueRepository createIssueRepository;
 
-    public CreateIssue(WebDriverWait Wait, WebDriver Driver){
+    public CreateIssue(WebDriverWait Wait, WebDriver Driver) {
         this.driver = Driver;
         this.wait = Wait;
         createIssueRepository = new CreateIssueRepository(wait);
     }
 
-    public void setSummary(String summary){
+    public void setSummary(String summary) {
         createIssueRepository.SummaryInputFieldOnCreateScreen().sendKeys(summary);
     }
 
-    public boolean multipleAssertion(String project, String type, String summary){
+    public boolean multipleAssertion(String project, String type, String summary) {
 
-        String [] projectName = project.split(" \\(");
+        String[] projectName = project.split(" \\(");
 
         boolean projectResult = createIssueRepository.ProjectOnCreatedIssue().getText().equals(projectName[0]);
         System.out.print(createIssueRepository.ProjectOnCreatedIssue().getText());
@@ -36,25 +36,31 @@ public class CreateIssue {
         return result;
     }
 
-    public boolean successfulCreateIssue(String project,String type,String summary){
+    public boolean successfulCreateIssue(String project, String type, String summary) {
         createIssueRepository.CreateButton().click();
 
 
-        if(!createIssueRepository.ActualProjectNameOnCreateScreen().getAttribute("value").equals(project)){
+        if (!createIssueRepository.ActualProjectNameOnCreateScreen().getAttribute("value").equals(project)) {
             createIssueRepository.ProjectOptionOnCreateScreen().click();
 
-            ((JavascriptExecutor) driver).executeScript("arguments[0].value = '';", createIssueRepository.ProjectInputField());
+            //((JavascriptExecutor) driver).executeScript("arguments[0].value = '';", createIssueRepository.ProjectInputField());
+            createIssueRepository.ProjectInputField().sendKeys(Keys.BACK_SPACE);
 
             createIssueRepository.ProjectInputField().sendKeys(project);
+
             createIssueRepository.ProjectInputField().sendKeys(Keys.ENTER);
         }
 
-        if(!createIssueRepository.ActualIssueType().getAttribute("value").equals(type)){
+        if (!createIssueRepository.ActualIssueType().getAttribute("value").equals(type)) {
             createIssueRepository.IssueTypeOptionOnCreateIssueScreen().click();
 
-            ((JavascriptExecutor) driver).executeScript("arguments[0].value = '';", createIssueRepository.IssueInputField());
+            //((JavascriptExecutor) driver).executeScript("arguments[0].value = '';", createIssueRepository.IssueInputField());
+
+
+            createIssueRepository.IssueInputField().sendKeys(Keys.BACK_SPACE);
 
             createIssueRepository.IssueInputField().sendKeys(type);
+
             createIssueRepository.IssueInputField().sendKeys(Keys.ENTER);
         }
 
@@ -64,7 +70,7 @@ public class CreateIssue {
 
         createIssueRepository.CreateIssuePopUp().click();
 
-        boolean result = multipleAssertion(project,type,summary);
+        boolean result = multipleAssertion(project, type, summary);
 
         //Delete the created issue
         createIssueRepository.MoreButton().click();
