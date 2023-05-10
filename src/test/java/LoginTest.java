@@ -1,44 +1,33 @@
 import Login.LoginPage;
-import Login.LoginRepository;
+import NavBar.NavBar;
+import DriverManager.DriverManager;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LoginTest {
 
-    private WebDriver driver;
-    private WebDriverWait wait;
+    private NavBar navBar;
     private LoginPage loginPage;
-
-    private LoginRepository repository;
-
     private Sheet sheet1;
-    private Sheet sheet2;
+    private String errorMessage = "Sorry, your username and password are incorrect - please try again.";
+    private DriverManager driverManager;
 
     @BeforeEach
     public void SetUp() throws IOException {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--kiosk");
-        driver = new ChromeDriver(options);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        driverManager = new DriverManager();
 
-        loginPage = new LoginPage(driver);
-
-        repository = new LoginRepository();
+        loginPage = new LoginPage(driverManager.getDriver());
+        navBar = new NavBar(driverManager.getDriver());
 
         FileInputStream fis = new FileInputStream(new File("/Users/kincsesbence/Desktop/TestAutomation_Module/JIRA_automation_v.2/src/main/Névtelen táblázat.xlsx"));
         Workbook workbook = new XSSFWorkbook(fis);
@@ -47,20 +36,20 @@ public class LoginTest {
 
     @AfterEach
     public void TearDown() {
-        driver.quit();
+        driverManager.tearDown();
     }
 
     @Test
     public void successfulLogin() {
-        loginPage.navigateToTheLoginPage(driver);
+        loginPage.navigateToTheLoginPage(driverManager.getDriver());
 
         loginPage.successfulLogIn();
 
-        repository.avatarIcon(wait).click();
+        navBar.clickToAvatarIcon();
 
-        repository.profileOption(wait).click();
+        navBar.clickToProfileOption();
 
-        assertEquals(repository.userNameOnProfile(wait).getText(), "automation48");
+        assertEquals(loginPage.getUserName(), "automation48");
     }
 
     @Test
@@ -68,16 +57,16 @@ public class LoginTest {
         String userName = sheet1.getRow(2).getCell(0).toString();
         String password = sheet1.getRow(2).getCell(1).toString();
 
-        loginPage.navigateToTheLoginPage(driver);
+        loginPage.navigateToTheLoginPage(driverManager.getDriver());
         loginPage.setUserName(userName);
         loginPage.setPassword(password);
         loginPage.clickToLogInButton();
 
-        boolean isErrorMessageDisplayed = repository.errorMessageOnTheLoginPage(wait).isDisplayed();
+        String expectedErrorMessage = loginPage.getErrorMessage();
 
         loginPage.successfulLogIn();
 
-        assertEquals(isErrorMessageDisplayed, true);
+        assertEquals(expectedErrorMessage, errorMessage);
     }
 
     @Test
@@ -85,42 +74,42 @@ public class LoginTest {
         String userName = sheet1.getRow(3).getCell(0).toString();
         String password = sheet1.getRow(3).getCell(1).toString();
 
-        loginPage.navigateToTheLoginPage(driver);
+        loginPage.navigateToTheLoginPage(driverManager.getDriver());
         loginPage.setUserName(userName);
         loginPage.setPassword(password);
         loginPage.clickToLogInButton();
 
-        boolean isErrorMessageDisplayed = repository.errorMessageOnTheLoginPage(wait).isDisplayed();
+        String expectedErrorMessage = loginPage.getErrorMessage();
 
-        assertEquals(isErrorMessageDisplayed, true);
+        assertEquals(expectedErrorMessage, errorMessage);
     }
 
     @Test
     public void leaveTheLoginFieldEmpty() {
-        loginPage.navigateToTheLoginPage(driver);
+        loginPage.navigateToTheLoginPage(driverManager.getDriver());
         loginPage.setUserName("");
         loginPage.setPassword("");
         loginPage.clickToLogInButton();
 
-        boolean isErrorMessageDisplayed = repository.errorMessageOnTheLoginPage(wait).isDisplayed();
+        String expectedErrorMessage = loginPage.getErrorMessage();
 
-        assertEquals(isErrorMessageDisplayed, true);
+        assertEquals(expectedErrorMessage, errorMessage);
     }
 
     @Test
     public void loginWithValidUsernameAndEmptyPassword() {
         String userName = sheet1.getRow(4).getCell(0).toString();
 
-        loginPage.navigateToTheLoginPage(driver);
+        loginPage.navigateToTheLoginPage(driverManager.getDriver());
         loginPage.setUserName(userName);
         loginPage.setPassword("");
         loginPage.clickToLogInButton();
 
-        boolean isErrorMessageDisplayed = repository.errorMessageOnTheLoginPage(wait).isDisplayed();
+        String expectedErrorMessage = loginPage.getErrorMessage();
 
         loginPage.successfulLogIn();
 
-        assertEquals(isErrorMessageDisplayed, true);
+        assertEquals(expectedErrorMessage, errorMessage);
     }
 
     @Test
@@ -129,24 +118,24 @@ public class LoginTest {
         String password = sheet1.getRow(2).getCell(1).toString();
 
         //First try
-        loginPage.navigateToTheLoginPage(driver);
+        loginPage.navigateToTheLoginPage(driverManager.getDriver());
         loginPage.setUserName(userName);
         loginPage.setPassword(password);
         loginPage.clickToLogInButton();
 
         //Second try
-        loginPage.navigateToTheLoginPage(driver);
+        loginPage.navigateToTheLoginPage(driverManager.getDriver());
         loginPage.setUserName(userName);
         loginPage.setPassword(password);
         loginPage.clickToLogInButton();
 
         //Third try
-        loginPage.navigateToTheLoginPage(driver);
+        loginPage.navigateToTheLoginPage(driverManager.getDriver());
         loginPage.setUserName(userName);
         loginPage.setPassword(password);
         loginPage.clickToLogInButton();
 
-        boolean isCaptchaDisplayed = repository.captchaDivOnLoginPage(wait).isDisplayed();
+        boolean isCaptchaDisplayed = loginPage.isCaptchaDisplayed();
 
         assertEquals(isCaptchaDisplayed,true);
     }

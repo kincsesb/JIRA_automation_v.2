@@ -1,84 +1,150 @@
 import CreateIssue.CreateIssue;
+import DriverManager.DriverManager;
+import IssuePage.IssuePage;
 import Login.LoginPage;
+import NavBar.NavBar;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.time.Duration;
 
 import static org.junit.Assert.assertEquals;
 
 public class CreateIssueTest {
-
-    private WebDriver driver;
-    private WebDriverWait wait;
     private LoginPage loginPage;
     private CreateIssue createIssue;
+    private IssuePage issuePage;
+    private NavBar navBar;
+    private DriverManager driverManager;
+    private Sheet sheet1;
 
     @BeforeEach
     public void SetUp() throws IOException {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--kiosk");
-        driver = new ChromeDriver(options);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-        createIssue = new CreateIssue(wait,driver);
-
-        loginPage = new LoginPage(driver);
-
-        loginPage.navigateToTheLoginPage(driver);
+        driverManager = new DriverManager();
+        createIssue = new CreateIssue(driverManager.getDriver(),driverManager.getWait());
+        loginPage = new LoginPage(driverManager.getDriver());
+        navBar = new NavBar(driverManager.getDriver());
+        issuePage = new IssuePage(driverManager.getDriver(),driverManager.getWait());
+        FileInputStream fis = new FileInputStream(new File("/Users/kincsesbence/Desktop/TestAutomation_Module/JIRA_automation_v.2/src/main/Névtelen táblázat.xlsx"));
+        Workbook workbook = new XSSFWorkbook(fis);
+        sheet1 = workbook.getSheet("Users");
+        loginPage.navigateToTheLoginPage(driverManager.getDriver());
         loginPage.successfulLogIn();
     }
 
     @AfterEach
     public void TearDown() {
-        driver.quit();
+        driverManager.tearDown();
     }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/successful_create_task_on_mtp.csv", numLinesToSkip = 0)
     public void SuccessfulCreateTaskOnMTP(String projectName, String issueType, String summary) {
-        boolean isSuccessful = createIssue.successfulCreateIssue(projectName, issueType, summary);
+        navBar.clickToCreateButton();
+        createIssue.validateTheProject(projectName);
+        createIssue.validateTheIssueType(issueType);
+        createIssue.setSummaryOnCreateScreen(summary);
+        createIssue.clickToSubmitTheCreateIssue();
+        createIssue.clickToCreatedIssuePopUp();
+        String type = issuePage.getIssueType();
+        String project = issuePage.getProject();
+        String summ = issuePage.getSummary();
 
-        assertEquals(isSuccessful, true);
+        //Delete the created issue
+        issuePage.clickToMoreButton();
+        issuePage.clickToDeleteOption();
+        issuePage.clickToConfirmDelete();
+
+        assertEquals(type, issueType);
+        assertEquals(project, projectName.split(" \\(")[0]);
+        assertEquals(summ, summary);
     }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/successful_create_issue_on_jeti.csv", numLinesToSkip = 0)
     public void SuccessfulCreateIssueOnJETI(String projectName, String issueType, String summary) {
-        boolean isSuccessful = createIssue.successfulCreateIssue(projectName, issueType, summary);
+        navBar.clickToCreateButton();
+        createIssue.validateTheProject(projectName);
+        createIssue.validateTheIssueType(issueType);
+        createIssue.setSummaryOnCreateScreen(summary);
+        createIssue.clickToSubmitTheCreateIssue();
+        createIssue.clickToCreatedIssuePopUp();
+        String type = issuePage.getIssueType();
+        String project = issuePage.getProject();
+        String summ = issuePage.getSummary();
 
-        assertEquals(isSuccessful, true);
+        //Delete the created issue
+        issuePage.clickToMoreButton();
+        issuePage.clickToDeleteOption();
+        issuePage.clickToConfirmDelete();
+
+        assertEquals(type, issueType);
+        assertEquals(project, projectName.split(" \\(")[0]);
+        assertEquals(summ, summary);
     }
     @ParameterizedTest
     @CsvFileSource(resources = "/successful_create_issue_on_coala.csv", numLinesToSkip = 0)
     public void SuccessfulCreateIssueOnCOALA(String projectName, String issueType, String summary) {
-        boolean isSuccessful = createIssue.successfulCreateIssue(projectName, issueType, summary);
+        navBar.clickToCreateButton();
+        createIssue.validateTheProject(projectName);
+        createIssue.validateTheIssueType(issueType);
+        createIssue.setSummaryOnCreateScreen(summary);
+        createIssue.clickToSubmitTheCreateIssue();
+        createIssue.clickToCreatedIssuePopUp();
+        String type = issuePage.getIssueType();
+        String project = issuePage.getProject();
+        String summ = issuePage.getSummary();
 
-        assertEquals(isSuccessful, true);
+        //Delete the created issue
+        issuePage.clickToMoreButton();
+        issuePage.clickToDeleteOption();
+        issuePage.clickToConfirmDelete();
+
+        assertEquals(type, issueType);
+        assertEquals(project, projectName.split(" \\(")[0]);
+        assertEquals(summ, summary);
     }
     @ParameterizedTest
     @CsvFileSource(resources = "/successful_create_issue_on_toucan.csv", numLinesToSkip = 0)
     public void SuccessfulCreateIssueOnTOUCAN(String projectName, String issueType, String summary) {
-        boolean isSuccessful = createIssue.successfulCreateIssue(projectName, issueType, summary);
+        navBar.clickToCreateButton();
+        createIssue.validateTheProject(projectName);
+        createIssue.validateTheIssueType(issueType);
+        createIssue.setSummaryOnCreateScreen(summary);
+        createIssue.clickToSubmitTheCreateIssue();
+        createIssue.clickToCreatedIssuePopUp();
+        String type = issuePage.getIssueType();
+        String project = issuePage.getProject();
+        String summ = issuePage.getSummary();
 
-        assertEquals(isSuccessful, true);
+        //Delete the created issue
+        issuePage.clickToMoreButton();
+        issuePage.clickToDeleteOption();
+        issuePage.clickToConfirmDelete();
+
+        assertEquals(type, issueType);
+        assertEquals(project, projectName.split(" \\(")[0]);
+        assertEquals(summ, summary);
     }
 
     @Test
     public void CreateTestWithEmptySummary(){
-        createIssue.createIssueRepository.CreateButton().click();
-        createIssue.createIssueRepository.CreateButtonOnCreateScreen().click();
+        navBar.clickToCreateButton();
+        createIssue.validateTheProject("Main Testing Project (MTP)");
+        createIssue.validateTheIssueType("Task");
+        createIssue.setSummaryOnCreateScreen("");
+        createIssue.clickToSubmitTheCreateIssue();
 
-        boolean isErrorMessageDisplayed = createIssue.createIssueRepository.SummaryErrorMessageOnCreateScreen().isDisplayed();
+        String errorMessage = createIssue.getSummaryErrorMessage();
 
-        assertEquals(isErrorMessageDisplayed,true);
+        assertEquals(errorMessage,"You must specify a summary of the issue.");
     }
 }

@@ -4,27 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2df61697-7025-4271-a338-be95f084c895" name="Changes" comment="Repair the project and issuetype in  CreateIssueRepository">
+    <list default="true" id="2df61697-7025-4271-a338-be95f084c895" name="Changes" comment="Add browse issue test and update BrowseRepository and refactor the csvsource to csvfilesource and add the csv files.">
       <change afterPath="$PROJECT_DIR$/src/main/Névtelen táblázat.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/issue_data.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/BrowseIssueTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DriverManager/DriverManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/IssuePage/IssuePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/LogOutPage/LogOutPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/NavBar/NavBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Browse/BrowseProject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Browse/BrowseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Browse/BrowseRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CreateIssue/CreateIssue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateIssue/CreateIssue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CreateIssue/CreateIssueRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateIssue/CreateIssueRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreateIssue/CreateIssueRepository.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Login/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Login/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BrowseProjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BrowseProjectTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Login/LoginRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BrowseIssueTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BrowseIssueTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/CreateIssueTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CreateIssueTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/LogOutTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LogOutTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LoginTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Browse/BrowseProject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Browse/BrowseRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Browse/BrowseRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Login/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Login/LoginPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Login/LoginRepository.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/classpath.index" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/classpath.index" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/BrowseProjectTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/BrowseProjectTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/LogOutTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/LogOutTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/classpath.index" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/classpath.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/LoginTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/LoginTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +34,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="package-info" />
         <option value="Class" />
       </list>
     </option>
@@ -67,46 +68,12 @@
     &quot;last_opened_file_path&quot;: &quot;/Users/kincsesbence/Desktop/TestAutomation_Module/JIRA_automation_v.2&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.BrowseIssueTest.SuccessfulIssueBrowse">
-    <configuration name="BrowseIssueTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="POM_KDT_With_Maven" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BrowseIssueTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BrowseIssueTest.BrowseDeletedIssue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="POM_KDT_With_Maven" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BrowseIssueTest" />
-      <option name="METHOD_NAME" value="BrowseDeletedIssue" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BrowseIssueTest.BrowseIssueWithExistingIdButNonExistingProject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="POM_KDT_With_Maven" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BrowseIssueTest" />
-      <option name="METHOD_NAME" value="BrowseIssueWithExistingIdButNonExistingProject" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BrowseIssueTest.BrowseIssueWithNonExistingId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="POM_KDT_With_Maven" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BrowseIssueTest" />
-      <option name="METHOD_NAME" value="BrowseIssueWithNonExistingId" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.CreateIssueTest.CreateTestWithEmptySummary">
     <configuration name="BrowseIssueTest.SuccessfulIssueBrowse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="POM_KDT_With_Maven" />
       <option name="PACKAGE_NAME" value="" />
@@ -117,13 +84,53 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CreateIssueTest.CreateTestWithEmptySummary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="POM_KDT_With_Maven" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CreateIssueTest" />
+      <option name="METHOD_NAME" value="CreateTestWithEmptySummary" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CreateIssueTest.SuccessfulCreateTaskOnMTP" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="POM_KDT_With_Maven" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CreateIssueTest" />
+      <option name="METHOD_NAME" value="SuccessfulCreateTaskOnMTP(java.lang.String,java.lang.String,java.lang.String)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginTest.loginWithValidUsernameAndInvalidPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="POM_KDT_With_Maven" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LoginTest" />
+      <option name="METHOD_NAME" value="loginWithValidUsernameAndInvalidPassword" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginTest.successfulLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="POM_KDT_With_Maven" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LoginTest" />
+      <option name="METHOD_NAME" value="successfulLogin" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CreateIssueTest.CreateTestWithEmptySummary" />
+        <item itemvalue="JUnit.CreateIssueTest.SuccessfulCreateTaskOnMTP" />
+        <item itemvalue="JUnit.LoginTest.successfulLogin" />
+        <item itemvalue="JUnit.LoginTest.loginWithValidUsernameAndInvalidPassword" />
         <item itemvalue="JUnit.BrowseIssueTest.SuccessfulIssueBrowse" />
-        <item itemvalue="JUnit.BrowseIssueTest.BrowseDeletedIssue" />
-        <item itemvalue="JUnit.BrowseIssueTest.BrowseIssueWithExistingIdButNonExistingProject" />
-        <item itemvalue="JUnit.BrowseIssueTest.BrowseIssueWithNonExistingId" />
-        <item itemvalue="JUnit.BrowseIssueTest" />
       </list>
     </recent_temporary>
   </component>
@@ -185,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683626516514</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Add browse issue test and update BrowseRepository and refactor the csvsource to csvfilesource and add the csv files.">
+      <created>1683701845110</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1683701845111</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -197,6 +211,7 @@
     <MESSAGE value="Update the browse projects." />
     <MESSAGE value="Add Create Issue tests and repository" />
     <MESSAGE value="Repair the project and issuetype in  CreateIssueRepository" />
-    <option name="LAST_COMMIT_MESSAGE" value="Repair the project and issuetype in  CreateIssueRepository" />
+    <MESSAGE value="Add browse issue test and update BrowseRepository and refactor the csvsource to csvfilesource and add the csv files." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add browse issue test and update BrowseRepository and refactor the csvsource to csvfilesource and add the csv files." />
   </component>
 </project>

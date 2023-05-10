@@ -1,77 +1,113 @@
 package CreateIssue;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CreateIssue {
 
+    @FindBy(xpath = "//input[@id='project-field']")
+    private WebElement actualProjectNameOnCreateScreen;
+    @FindBy(xpath = "//input[@id='project-field']")
+    private WebElement projectInputField;
+    @FindBy(xpath = "//input[@id='issuetype-field']")
+    private WebElement issueTypeInputField;
+    @FindBy(xpath = "//div[@role='alert']")
+    private WebElement summaryErrorMessageOnCreateScreen;
+    @FindBy(xpath = "//input[@id='issuetype-field']")
+    private WebElement actualIssueType;
+    @FindBy(xpath = "//input[@id='summary']")
+    private WebElement summaryInputFieldOnCreateScreen;
+    @FindBy(xpath = "//input[@id='create-issue-submit']")
+    private WebElement createButtonOnCreateScreen;
+    @FindBy(xpath = "//a[@class='issue-created-key issue-link']")
+    private WebElement createIssuePopUp;
+
     private WebDriverWait wait;
-    private WebDriver driver;
-    public CreateIssueRepository createIssueRepository;
+    public CreateIssue(WebDriver driver, WebDriverWait wait) {
 
-    public CreateIssue(WebDriverWait Wait, WebDriver Driver){
-        this.driver = Driver;
-        this.wait = Wait;
-        createIssueRepository = new CreateIssueRepository(wait);
+        this.wait = wait;
+        PageFactory.initElements(driver, this);
     }
 
-    public void setSummary(String summary){
-        createIssueRepository.SummaryInputFieldOnCreateScreen().sendKeys(summary);
+
+    public String getActualProjectNameOnCreateScreen() {
+        return actualProjectNameOnCreateScreen.getAttribute("value");
     }
 
-    public boolean multipleAssertion(String project, String type, String summary){
-
-        String [] projectName = project.split(" \\(");
-
-        boolean projectResult = createIssueRepository.ProjectOnCreatedIssue().getText().equals(projectName[0]);
-        System.out.print(createIssueRepository.ProjectOnCreatedIssue().getText());
-        boolean summaryResult = createIssueRepository.SummaryOnCreatedIssue().getText().equals(summary);
-        System.out.print(createIssueRepository.SummaryOnCreatedIssue().getText());
-        boolean issueTypeResult = createIssueRepository.IssueTypeOnCreatedIssue().getText().equals(type);
-        System.out.print(createIssueRepository.IssueTypeOnCreatedIssue().getText());
-        boolean result = projectResult && summaryResult && issueTypeResult;
-
-        return result;
+    public String getActualIssueTypeOnCreateScreen() {
+        return actualIssueType.getAttribute("value");
     }
 
-    public boolean successfulCreateIssue(String project,String type,String summary){
-        createIssueRepository.CreateButton().click();
+    public void clickToProjectInputField() {
+        projectInputField.click();
+    }
 
+    public void setProjectOnCreateScreen(String project) {
+        projectInputField.sendKeys(project);
+    }
 
-        if(!createIssueRepository.ActualProjectNameOnCreateScreen().getAttribute("value").equals(project)){
-            createIssueRepository.ProjectOptionOnCreateScreen().click();
+    public void sendBackSpaceToProjectInput() {
+        projectInputField.sendKeys(Keys.BACK_SPACE);
+    }
 
-            ((JavascriptExecutor) driver).executeScript("arguments[0].value = '';", createIssueRepository.ProjectInputField());
+    public void sendEnterToProjectInput() {
+        projectInputField.sendKeys(Keys.ENTER);
+    }
 
-            createIssueRepository.ProjectInputField().sendKeys(project);
-            createIssueRepository.ProjectInputField().sendKeys(Keys.ENTER);
+    public String getSummaryErrorMessage() {
+       return summaryErrorMessageOnCreateScreen.getText();
+    }
+
+    public void clickToIssueTypeInputField() {
+        issueTypeInputField.click();
+    }
+
+    public void setIssueType(String type) {
+        issueTypeInputField.sendKeys(type);
+    }
+
+    public void sendBackSpaceToIssueInput() {
+        issueTypeInputField.sendKeys(Keys.BACK_SPACE);
+    }
+
+    public void sendEnterToIssueInput() {
+        issueTypeInputField.sendKeys(Keys.ENTER);
+    }
+
+    public void setSummaryOnCreateScreen(String summary) {
+        summaryInputFieldOnCreateScreen.sendKeys(summary);
+    }
+
+    public void clickToSubmitTheCreateIssue(){
+        createButtonOnCreateScreen.click();
+    }
+
+    public void clickToCreatedIssuePopUp(){
+        createIssuePopUp.click();
+    }
+
+    public void validateTheProject(String project){
+        wait.until(ExpectedConditions.visibilityOf(actualProjectNameOnCreateScreen));
+        if(!getActualProjectNameOnCreateScreen().equals(project)){
+            clickToProjectInputField();
+            sendBackSpaceToProjectInput();
+            setProjectOnCreateScreen(project);
+            sendEnterToProjectInput();
         }
-
-        if(!createIssueRepository.ActualIssueType().getAttribute("value").equals(type)){
-            createIssueRepository.IssueTypeOptionOnCreateIssueScreen().click();
-
-            ((JavascriptExecutor) driver).executeScript("arguments[0].value = '';", createIssueRepository.IssueInputField());
-
-            createIssueRepository.IssueInputField().sendKeys(type);
-            createIssueRepository.IssueInputField().sendKeys(Keys.ENTER);
-        }
-
-        createIssueRepository.SummaryInputFieldOnCreateScreen().sendKeys(summary);
-
-        createIssueRepository.CreateButtonOnCreateScreen().click();
-
-        createIssueRepository.CreateIssuePopUp().click();
-
-        boolean result = multipleAssertion(project,type,summary);
-
-        //Delete the created issue
-        createIssueRepository.MoreButton().click();
-        createIssueRepository.DeleteOption().click();
-        createIssueRepository.ConfirmTheDelete().click();
-
-        return result;
     }
 
+    public void validateTheIssueType(String type){
+        wait.until(ExpectedConditions.visibilityOf(actualIssueType));
+        if(!getActualIssueTypeOnCreateScreen().equals(type)){
+            clickToIssueTypeInputField();
+            sendBackSpaceToIssueInput();
+            setIssueType(type);
+            sendEnterToIssueInput();
+        }
+    }
 }

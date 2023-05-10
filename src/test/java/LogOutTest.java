@@ -1,43 +1,36 @@
+import DriverManager.DriverManager;
+import LogOutPage.LogOutPage;
 import Login.LoginPage;
-import Login.LoginRepository;
+import NavBar.NavBar;
+
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.time.Duration;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
+
 public class LogOutTest {
 
-    private WebDriver driver;
-    private WebDriverWait wait;
     private LoginPage loginPage;
-
-    private LoginRepository repository;
-
+    private LogOutPage logOutPage;
+    private NavBar navBar;
     private Sheet sheet1;
-    private Sheet sheet2;
+    private DriverManager driverManager;
 
     @BeforeEach
     public void SetUp() throws IOException {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--kiosk");
-        driver = new ChromeDriver(options);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        driverManager = new DriverManager();
 
-        loginPage = new LoginPage(driver);
-
-        repository = new LoginRepository();
+        loginPage = new LoginPage(driverManager.getDriver());
+        navBar = new NavBar(driverManager.getDriver());
+        logOutPage = new LogOutPage(driverManager.getDriver());
 
         FileInputStream fis = new FileInputStream(new File("/Users/kincsesbence/Desktop/TestAutomation_Module/JIRA_automation_v.2/src/main/Névtelen táblázat.xlsx"));
         Workbook workbook = new XSSFWorkbook(fis);
@@ -46,18 +39,15 @@ public class LogOutTest {
 
     @AfterEach
     public void TearDown() {
-        driver.quit();
+        driverManager.tearDown();
     }
 
     @Test
     public void successfulLogOut(){
-        loginPage.navigateToTheLoginPage(driver);
+        loginPage.navigateToTheLoginPage(driverManager.getDriver());
         loginPage.successfulLogIn();
-        repository.avatarIcon(wait).click();
-        repository.logOutOption(wait).click();
 
-        boolean isLogOutMessageDisplayed = repository.logOutMessage(wait).isDisplayed();
-
+        boolean isLogOutMessageDisplayed = logOutPage.isErrorMessageDisplayed();
         assertEquals(isLogOutMessageDisplayed, true);
     }
 }
