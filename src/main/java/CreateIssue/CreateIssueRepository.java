@@ -25,9 +25,6 @@ public class CreateIssueRepository {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='project-field']")));
     }
 
-    public WebElement DynamicProject(String projectName) {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@role='presentation'][contains(text(), '" + projectName + "')]")));
-    }
 
     public WebElement ProjectInputField(){
         return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='project-field']")));
@@ -48,9 +45,6 @@ public class CreateIssueRepository {
         return wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='issuetype-field']")));
     }
 
-    public WebElement DynamicIssueType(String type){
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li//a[contains(text(),'" + type + "')]")));
-    }
 
     public WebElement SummaryInputFieldOnCreateScreen(){
         return wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='summary']")));
@@ -85,6 +79,6 @@ public class CreateIssueRepository {
     }
 
     public WebElement ConfirmTheDelete(){
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='delete-issue-submit']")));
+        return wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='delete-issue-submit']")));
     }
 }

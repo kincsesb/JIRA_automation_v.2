@@ -4,7 +4,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -39,15 +39,11 @@ public class CreateIssueTest {
 
     @AfterEach
     public void TearDown() {
-        //loginPage.succesFulLogOut();
         driver.quit();
     }
 
     @ParameterizedTest
-    @CsvSource({
-            "Main Testing Project (MTP),Task,asd123",
-            "Main Testing Project (MTP),Task,!@#%&*",
-    })
+    @CsvFileSource(resources = "/successful_create_task_on_mtp.csv", numLinesToSkip = 0)
     public void SuccessfulCreateTaskOnMTP(String projectName, String issueType, String summary) {
         boolean isSuccessful = createIssue.successfulCreateIssue(projectName, issueType, summary);
 
@@ -55,38 +51,26 @@ public class CreateIssueTest {
     }
 
     @ParameterizedTest
-    @CsvSource({
-            "JETI project (JETI),Story,asd123",
-            "JETI project (JETI),Task,asd123",
-            "JETI project (JETI),Bug,asd123",
-    })
+    @CsvFileSource(resources = "/successful_create_issue_on_jeti.csv", numLinesToSkip = 0)
     public void SuccessfulCreateIssueOnJETI(String projectName, String issueType, String summary) {
         boolean isSuccessful = createIssue.successfulCreateIssue(projectName, issueType, summary);
 
         assertEquals(isSuccessful, true);
     }
     @ParameterizedTest
-    @CsvSource({
-            "COALA project (COALA),Story,asd123",
-            "COALA project (COALA),Task,asd123",
-            "COALA project (COALA),Bug,asd123",
-    })
+    @CsvFileSource(resources = "/successful_create_issue_on_coala.csv", numLinesToSkip = 0)
     public void SuccessfulCreateIssueOnCOALA(String projectName, String issueType, String summary) {
         boolean isSuccessful = createIssue.successfulCreateIssue(projectName, issueType, summary);
 
         assertEquals(isSuccessful, true);
     }
-  /*  @ParameterizedTest
-    @CsvSource({
-            "TOUCAN project (TOUCAN),Story,asd123",
-            "TOUCAN project (TOUCAN),Task,asd123",
-            "TOUCAN project (TOUCAN),Bug,asd123",
-    })
+    @ParameterizedTest
+    @CsvFileSource(resources = "/successful_create_issue_on_toucan.csv", numLinesToSkip = 0)
     public void SuccessfulCreateIssueOnTOUCAN(String projectName, String issueType, String summary) {
         boolean isSuccessful = createIssue.successfulCreateIssue(projectName, issueType, summary);
 
         assertEquals(isSuccessful, true);
-    }*/
+    }
 
     @Test
     public void CreateTestWithEmptySummary(){

@@ -1,0 +1,4 @@
+https://jira-auto.codecool.metastage.net/projects/MTP/summary,//dd[normalize-space()='MTP'],MTP
+https://jira-auto.codecool.metastage.net/projects/COALA/summary,//dd[normalize-space()='COALA'],COALA
+https://jira-auto.codecool.metastage.net/projects/JETI/summary,//dd[normalize-space()='JETI'],JETI
+https://jira-auto.codecool.metastage.net/projects/TOUCAN/summary,//dd[normalize-space()='TOUCAN'],TOUCAN

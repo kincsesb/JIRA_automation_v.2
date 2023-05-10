@@ -13,7 +13,7 @@ import java.time.Duration;
 
 public class LoginPage {
 
-    private FileInputStream fis = new FileInputStream(new File("\\F:\\TW3\\Nevtelen_tablazat.xlsx\\"));
+    private FileInputStream fis = new FileInputStream(new File("/Users/kincsesbence/Desktop/TestAutomation_Module/JIRA_automation_v.2/src/main/Névtelen táblázat.xlsx"));
     private Workbook workbook = new XSSFWorkbook(fis);
     private Sheet sheet1 = workbook.getSheet("Users");
 
@@ -50,6 +50,11 @@ public class LoginPage {
     }
 
     public void succesFulLogOut(){
+        repository.avatarIcon(wait).click();
+        repository.logOutOption(wait).click();
+    }
+
+    public void successFulLogOut(){
         repository.avatarIcon(wait).click();
         repository.logOutOption(wait).click();
     }

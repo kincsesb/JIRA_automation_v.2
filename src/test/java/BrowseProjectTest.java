@@ -1,11 +1,10 @@
-import Browse.BrowseProject;
 import Browse.BrowseRepository;
 import Login.LoginPage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -20,8 +19,6 @@ public class BrowseProjectTest {
     private WebDriver driver;
     private WebDriverWait wait;
     private LoginPage loginPage;
-    private BrowseProject browseProject;
-
     private BrowseRepository browseRepository;
 
 
@@ -33,13 +30,12 @@ public class BrowseProjectTest {
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         loginPage = new LoginPage(driver);
-        browseProject = new BrowseProject(driver);
 
-        browseRepository = new BrowseRepository();
+        browseRepository = new BrowseRepository(driver,wait);
 
         loginPage.navigateToTheLoginPage(driver);
         loginPage.successfulLogIn();
-        browseRepository.ProjectButton(wait);
+        browseRepository.ProjectButton();
     }
 
     @AfterEach
@@ -48,25 +44,21 @@ public class BrowseProjectTest {
     }
 
     @ParameterizedTest
-    @CsvSource({
-            "https://jira-auto.codecool.metastage.net/projects/MTP/summary, //dd[normalize-space()='MTP'], MTP",
-            "https://jira-auto.codecool.metastage.net/projects/COALA/summary, //dd[normalize-space()='COALA'], COALA",
-            "https://jira-auto.codecool.metastage.net/projects/JETI/summary, //dd[normalize-space()='JETI'], JETI",
-            "https://jira-auto.codecool.metastage.net/projects/TOUCAN/summary, //dd[normalize-space()='TOUCAN'], TOUCAN"
-    })public void SuccessfulProjectsBrowse(String link, String xpath, String result) {
+    @CsvFileSource(resources = "/project_summary_data.csv", numLinesToSkip = 0)
+    public void SuccessfulProjectsBrowse(String link, String xpath, String result) {
 
-        browseRepository.NavigateToProjectLink(driver, link);
+        browseRepository.NavigateToProjectLink(link);
 
-        String expectedResult = browseRepository.PathToKeyElement(wait, xpath).getText();
+        String expectedResult = browseRepository.PathToKeyElement(xpath).getText();
 
         assertEquals(expectedResult, result);
     }
 
     @Test
     public void BrowseProjectWhatDoesntExist(){
-        browseRepository.NavigateToProjectLink(driver, "https://jira-auto.codecool.metastage.net/projects/MTP2/summary");
+        browseRepository.NavigateToProjectLink("https://jira-auto.codecool.metastage.net/projects/MTP2/summary");
 
-        assertEquals(browseRepository.YouCantViewProjectDiv(wait).isDisplayed(),true);
+        assertEquals(browseRepository.ErrorMessage().isDisplayed(),true);
     }
 
 }
