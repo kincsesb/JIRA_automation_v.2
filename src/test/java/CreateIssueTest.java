@@ -24,18 +24,14 @@ public class CreateIssueTest {
     private IssuePage issuePage;
     private NavBar navBar;
     private DriverManager driverManager;
-    private Sheet sheet1;
 
     @BeforeEach
     public void SetUp() throws IOException {
         driverManager = new DriverManager();
         createIssue = new CreateIssue(driverManager.getDriver(),driverManager.getWait());
-        loginPage = new LoginPage(driverManager.getDriver());
-        navBar = new NavBar(driverManager.getDriver());
+        loginPage = new LoginPage(driverManager.getDriver(), driverManager.getWait());
+        navBar = new NavBar(driverManager.getDriver(), driverManager.getWait());
         issuePage = new IssuePage(driverManager.getDriver(),driverManager.getWait());
-        FileInputStream fis = new FileInputStream(new File("/Users/kincsesbence/Desktop/TestAutomation_Module/JIRA_automation_v.2/src/main/Névtelen táblázat.xlsx"));
-        Workbook workbook = new XSSFWorkbook(fis);
-        sheet1 = workbook.getSheet("Users");
         loginPage.navigateToTheLoginPage(driverManager.getDriver());
         loginPage.successfulLogIn();
     }

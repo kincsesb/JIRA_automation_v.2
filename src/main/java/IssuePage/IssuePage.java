@@ -29,14 +29,17 @@ public class IssuePage {
     }
 
     public String getSummary(){
+        wait.until(ExpectedConditions.visibilityOf(summaryOnCreatedIssue));
         return summaryOnCreatedIssue.getText();
     }
 
     public String getIssueType(){
+        wait.until(ExpectedConditions.visibilityOf(issueTypeOnCreatedIssue));
         return issueTypeOnCreatedIssue.getText();
     }
 
     public String getProject(){
+        wait.until(ExpectedConditions.visibilityOf(projectOnCreatedIssue));
         return projectOnCreatedIssue.getText();
     }
 

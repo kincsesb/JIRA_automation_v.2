@@ -4,8 +4,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class NavBar {
+
+    private WebDriverWait wait;
 
     @FindBy(xpath = "//a[@id='header-details-user-fullname']")
     private WebElement avatarIcon;
@@ -19,14 +23,28 @@ public class NavBar {
     @FindBy(xpath = "//a[@id='create_link']")
     private WebElement createButton;
 
-    public NavBar(WebDriver driver){
+    public NavBar(WebDriver driver, WebDriverWait wait) {
+        this.wait = wait;
         PageFactory.initElements(driver, this);
     }
 
-    public void clickToAvatarIcon(){avatarIcon.click();}
-    public void clickToProfileOption(){profileOption.click();}
-    public void clickToLogOutOption(){
+    public void clickToAvatarIcon() {
+        wait.until(ExpectedConditions.visibilityOf(avatarIcon));
+        avatarIcon.click();
+    }
+
+    public void clickToProfileOption() {
+        wait.until(ExpectedConditions.visibilityOf(profileOption));
+        profileOption.click();
+    }
+
+    public void clickToLogOutOption() {
+        wait.until(ExpectedConditions.visibilityOf(logOutOption));
         logOutOption.click();
     }
-    public void clickToCreateButton(){createButton.click();}
+
+    public void clickToCreateButton() {
+        wait.until(ExpectedConditions.visibilityOf(createButton));
+        createButton.click();
+    }
 }

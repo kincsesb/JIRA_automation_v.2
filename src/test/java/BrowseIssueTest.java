@@ -30,7 +30,7 @@ public class BrowseIssueTest {
         driver = new ChromeDriver(options);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        loginPage = new LoginPage(driver);
+        loginPage = new LoginPage(driver, wait);
 
         browseRepository = new BrowseRepository(driver,wait);
 

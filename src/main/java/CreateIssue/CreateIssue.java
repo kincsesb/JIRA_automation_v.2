@@ -36,58 +36,72 @@ public class CreateIssue {
 
 
     public String getActualProjectNameOnCreateScreen() {
+        wait.until(ExpectedConditions.visibilityOf(actualProjectNameOnCreateScreen));
         return actualProjectNameOnCreateScreen.getAttribute("value");
     }
 
     public String getActualIssueTypeOnCreateScreen() {
+        wait.until(ExpectedConditions.visibilityOf(actualIssueType));
         return actualIssueType.getAttribute("value");
     }
 
     public void clickToProjectInputField() {
+        wait.until(ExpectedConditions.elementToBeClickable(projectInputField));
         projectInputField.click();
     }
 
     public void setProjectOnCreateScreen(String project) {
+        wait.until(ExpectedConditions.elementToBeClickable(projectInputField));
         projectInputField.sendKeys(project);
     }
 
     public void sendBackSpaceToProjectInput() {
+        wait.until(ExpectedConditions.elementToBeClickable(projectInputField));
         projectInputField.sendKeys(Keys.BACK_SPACE);
     }
 
     public void sendEnterToProjectInput() {
+        wait.until(ExpectedConditions.elementToBeClickable(projectInputField));
         projectInputField.sendKeys(Keys.ENTER);
     }
 
     public String getSummaryErrorMessage() {
-       return summaryErrorMessageOnCreateScreen.getText();
+       wait.until(ExpectedConditions.visibilityOf(summaryErrorMessageOnCreateScreen));
+        return summaryErrorMessageOnCreateScreen.getText();
     }
 
     public void clickToIssueTypeInputField() {
+        wait.until(ExpectedConditions.elementToBeClickable(issueTypeInputField));
         issueTypeInputField.click();
     }
 
     public void setIssueType(String type) {
+        wait.until(ExpectedConditions.elementToBeClickable(issueTypeInputField));
         issueTypeInputField.sendKeys(type);
     }
 
     public void sendBackSpaceToIssueInput() {
+        wait.until(ExpectedConditions.elementToBeClickable(issueTypeInputField));
         issueTypeInputField.sendKeys(Keys.BACK_SPACE);
     }
 
     public void sendEnterToIssueInput() {
+        wait.until(ExpectedConditions.elementToBeClickable(issueTypeInputField));
         issueTypeInputField.sendKeys(Keys.ENTER);
     }
 
     public void setSummaryOnCreateScreen(String summary) {
+        wait.until(ExpectedConditions.elementToBeClickable(summaryInputFieldOnCreateScreen));
         summaryInputFieldOnCreateScreen.sendKeys(summary);
     }
 
     public void clickToSubmitTheCreateIssue(){
+        wait.until(ExpectedConditions.elementToBeClickable(createButtonOnCreateScreen));
         createButtonOnCreateScreen.click();
     }
 
     public void clickToCreatedIssuePopUp(){
+        wait.until(ExpectedConditions.elementToBeClickable(createIssuePopUp));
         createIssuePopUp.click();
     }
 
