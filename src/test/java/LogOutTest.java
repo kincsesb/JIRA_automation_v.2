@@ -30,7 +30,7 @@ public class LogOutTest {
 
         loginPage = new LoginPage(driverManager.getDriver(), driverManager.getWait());
         navBar = new NavBar(driverManager.getDriver(), driverManager.getWait());
-        logOutPage = new LogOutPage(driverManager.getDriver());
+        logOutPage = new LogOutPage(driverManager.getDriver(),driverManager.getWait());
 
         FileInputStream fis = new FileInputStream(new File("\\F:\\TW3\\Nevtelen_tablazat.xlsx\\"));
         Workbook workbook = new XSSFWorkbook(fis);

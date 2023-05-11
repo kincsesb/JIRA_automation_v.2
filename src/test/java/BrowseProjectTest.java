@@ -1,64 +1,53 @@
-import Browse.BrowseRepository;
+import DriverManager.DriverManager;
 import Login.LoginPage;
+import ProjectPage.ProjectPage;
+import Utils.Utility;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
-import java.time.Duration;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
+
 
 public class BrowseProjectTest {
-    private WebDriver driver;
-    private WebDriverWait wait;
-    private LoginPage loginPage;
-    private BrowseRepository browseRepository;
 
+    private LoginPage loginPage;
+    private DriverManager driverManager;
+    private ProjectPage projectPage;
+    private Utility utility;
 
     @BeforeEach
     public void SetUp() throws IOException {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--kiosk");
-        driver = new ChromeDriver(options);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-        loginPage = new LoginPage(driver, wait);
-
-        browseRepository = new BrowseRepository(driver,wait);
-
-        loginPage.navigateToTheLoginPage(driver);
+        driverManager = new DriverManager();
+        loginPage = new LoginPage(driverManager.getDriver(), driverManager.getWait());
+        projectPage = new ProjectPage(driverManager.getDriver(), driverManager.getWait());
+        utility = new Utility(driverManager.getDriver(), driverManager.getWait());
+        loginPage.navigateToTheLoginPage(driverManager.getDriver());
         loginPage.successfulLogIn();
-        browseRepository.ProjectButton();
     }
 
     @AfterEach
     public void TearDown() {
-        driver.quit();
+        driverManager.tearDown();
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/project_summary_data.csv", numLinesToSkip = 0)
-    public void SuccessfulProjectsBrowse(String link, String xpath, String result) {
+    @CsvFileSource(resources = "/browse_project", numLinesToSkip = 0)
+    public void SuccessfulProjectsBrowse(String url, String expectedKey) {
 
-        browseRepository.NavigateToProjectLink(link);
-
-        String expectedResult = browseRepository.PathToKeyElement(xpath).getText();
-
-        assertEquals(expectedResult, result);
+        utility.navigateToUrl(url);
+        assertEquals(projectPage.getProjectKey(),expectedKey);
     }
 
     @Test
-    public void BrowseProjectWhatDoesntExist(){
-        browseRepository.NavigateToProjectLink("https://jira-auto.codecool.metastage.net/projects/MTP2/summary");
+    public void BrowseProjectWhatDoesntExist() {
 
-        assertEquals(browseRepository.ErrorMessage().isDisplayed(),true);
+        utility.navigateToUrl("https://jira-auto.codecool.metastage.net/projects/MTP2/summary");
+        assertEquals(projectPage.getErrorMessageText(), "You can't view this project");
     }
 
 }

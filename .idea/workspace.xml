@@ -4,22 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2df61697-7025-4271-a338-be95f084c895" name="Changes" comment="Add browse issue test and update BrowseRepository and refactor the csvsource to csvfilesource and add the csv files.">
+    <list default="true" id="2df61697-7025-4271-a338-be95f084c895" name="Changes" comment="Repair everything.">
+      <change afterPath="$PROJECT_DIR$/src/main/Névtelen táblázat.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/BasePage/BasePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Browse/BrowseRepository.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CreateIssue/CreateIssue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateIssue/CreateIssue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/IssuePage/IssuePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IssuePage/IssuePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LogOutPage/LogOutPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LogOutPage/LogOutPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Login/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Login/LoginPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/NavBar/NavBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NavBar/NavBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/issue_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/issue_data.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/BrowseIssueTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BrowseIssueTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/BrowseProjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BrowseProjectTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CreateIssueTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CreateIssueTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/LogOutTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LogOutTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LoginTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Login/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Login/LoginPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/classpath.index" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/classpath.index" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/BrowseProjectTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/BrowseProjectTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/LogOutTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/LogOutTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/LoginTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/LoginTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,25 +54,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/kincsesbence/Desktop/TestAutomation_Module/JIRA_automation_v.2",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kincsesbence/Desktop/TestAutomation_Module/JIRA_automation_v.2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CreateIssueTest.SuccessfulCreateIssueOnJETI">
+  <component name="RunManager" selected="JUnit.LoginTest.successfulLogin">
     <configuration name="CreateIssueTest.CreateTestWithEmptySummary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="POM_KDT_With_Maven" />
       <option name="PACKAGE_NAME" value="" />
@@ -126,9 +125,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LoginTest.successfulLogin" />
         <item itemvalue="JUnit.CreateIssueTest.SuccessfulCreateIssueOnJETI" />
         <item itemvalue="JUnit.CreateIssueTest.SuccessfulCreateTaskOnMTP" />
-        <item itemvalue="JUnit.LoginTest.successfulLogin" />
         <item itemvalue="JUnit.LoginTest.loginWithValidUsernameAndInvalidPassword" />
         <item itemvalue="JUnit.CreateIssueTest.CreateTestWithEmptySummary" />
       </list>

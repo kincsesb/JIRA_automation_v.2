@@ -1,5 +1,6 @@
 package NavBar;
 
+import BasePage.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class NavBar {
+public class NavBar extends BasePage {
 
     private WebDriverWait wait;
 
@@ -24,8 +25,7 @@ public class NavBar {
     private WebElement createButton;
 
     public NavBar(WebDriver driver, WebDriverWait wait) {
-        this.wait = wait;
-        PageFactory.initElements(driver, this);
+        super(driver,wait);
     }
 
     public void clickToAvatarIcon() {

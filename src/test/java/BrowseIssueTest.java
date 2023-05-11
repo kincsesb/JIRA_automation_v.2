@@ -1,87 +1,52 @@
+import DriverManager.DriverManager;
+import IssuePage.IssuePage;
 import Login.LoginPage;
-import Browse.BrowseRepository;
+import Utils.Utility;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.io.IOException;
-import java.time.Duration;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BrowseIssueTest {
 
-    private WebDriver driver;
-    private WebDriverWait wait;
     private LoginPage loginPage;
-
-    private BrowseRepository browseRepository;
+    private IssuePage issuePage;
+    private DriverManager driverManager;
+    private Utility utility;
 
     @BeforeEach
     public void SetUp() throws IOException {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--kiosk");
-        driver = new ChromeDriver(options);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-        loginPage = new LoginPage(driver, wait);
-
-        browseRepository = new BrowseRepository(driver,wait);
-
-        loginPage.navigateToTheLoginPage(driver);
+        driverManager = new DriverManager();
+        loginPage = new LoginPage(driverManager.getDriver(), driverManager.getWait());
+        issuePage = new IssuePage(driverManager.getDriver(), driverManager.getWait());
+        utility = new Utility(driverManager.getDriver(), driverManager.getWait());
+        loginPage.navigateToTheLoginPage(driverManager.getDriver());
         loginPage.successfulLogIn();
-        browseRepository.ProjectButton();
     }
 
     @AfterEach
     public void TearDown() {
-        driver.quit();
+        driverManager.tearDown();
     }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/issue_data.csv", numLinesToSkip = 0)
-    public void SuccessfulIssueBrowse(String url, String issueId) {
+    public void SuccessfulIssueBrowse(String url, String expectedIssueId) {
 
-        browseRepository.NavigateToProjectLink(url);
+        utility.navigateToUrl(url);
 
-        String expectedResult = browseRepository.IssueId().getText();
-
-        assertEquals(expectedResult, issueId);
+        assertEquals(issuePage.checkIssueId(), expectedIssueId);
     }
 
-    @Test
-    public void BrowseIssueWithNonExistingId(){
+    @ParameterizedTest
+    @CsvFileSource(resources = "/non_existing_issues.csv", numLinesToSkip = 0)
+    public void BrowseNonExistingOrDeletedIssue(String url, String expectedError) {
 
-        browseRepository.NavigateToProjectLink("https://jira-auto.codecool.metastage.net/browse/MTP-100000");
+        utility.navigateToUrl(url);
 
-        boolean isErrorMessageDisplayed = browseRepository.ErrorMessage().isDisplayed();
+        assertEquals(issuePage.getErrorMessageText(), expectedError);
 
-        assertEquals(isErrorMessageDisplayed,true);
-    }
-
-    @Test
-    public void BrowseIssueWithExistingIdButNonExistingProject(){
-
-        browseRepository.NavigateToProjectLink("https://jira-auto.codecool.metastage.net/browse/MTPP-10");
-
-        boolean isErrorMessageDisplayed = browseRepository.ErrorMessage().isDisplayed();
-
-        assertEquals(isErrorMessageDisplayed,true);
-    }
-
-    @Test
-    public void BrowseDeletedIssue(){
-
-        browseRepository.NavigateToProjectLink("https://jira-auto.codecool.metastage.net/browse/MTP-2");
-
-        boolean isErrorMessageDisplayed = browseRepository.ErrorMessage().isDisplayed();
-
-        assertEquals(isErrorMessageDisplayed,true);
     }
 }

@@ -1,12 +1,12 @@
 package Login;
 
+import BasePage.BasePage;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -14,7 +14,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
 
     @FindBy(xpath = "//input[@id='login-form-username']")
     private WebElement userNameField;
@@ -23,7 +23,7 @@ public class LoginPage {
     private WebElement passwordField;
 
     @FindBy(xpath = "//input[@id='login']")
-    private WebElement loginButton;
+    public static WebElement loginButton;
 
     @FindBy(xpath = "//dd[@id='up-d-username']")
     private WebElement userNameOnProfile;
@@ -34,16 +34,13 @@ public class LoginPage {
     @FindBy(xpath = "//div[@id='captcha']")
     private WebElement captchaDivOnLoginPage;
 
-    private FileInputStream fis = new FileInputStream(new File("\\F:\\TW3\\Nevtelen_tablazat.xlsx\\"));
+    private FileInputStream fis = new FileInputStream(new File("/Users/kincsesbence/Desktop/TestAutomation_Module/JIRA_automation_v.2/src/main/Névtelen táblázat.xlsx"));
     private Workbook workbook = new XSSFWorkbook(fis);
     private Sheet sheet1 = workbook.getSheet("Users");
 
-    private WebDriverWait wait;
-
 
     public LoginPage(WebDriver driver, WebDriverWait wait) throws IOException {
-        this.wait = wait;
-        PageFactory.initElements(driver, this);
+        super(driver, wait);
     }
 
 

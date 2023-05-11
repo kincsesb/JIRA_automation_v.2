@@ -29,7 +29,7 @@ public class LoginTest {
         loginPage = new LoginPage(driverManager.getDriver(), driverManager.getWait());
         navBar = new NavBar(driverManager.getDriver(), driverManager.getWait());
 
-        FileInputStream fis = new FileInputStream(new File("\\F:\\TW3\\Nevtelen_tablazat.xlsx\\"));
+        FileInputStream fis = new FileInputStream(new File("/Users/kincsesbence/Desktop/TestAutomation_Module/JIRA_automation_v.2/src/main/Névtelen táblázat.xlsx"));
         Workbook workbook = new XSSFWorkbook(fis);
         sheet1 = workbook.getSheet("Users");
     }
