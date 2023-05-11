@@ -26,6 +26,9 @@ public class IssuePage extends BasePage{
     @FindBy(xpath = "//div[@class='issue-error']")
     private WebElement errorMessage;
 
+    @FindBy(xpath = "//span[normalize-space()='Edit']")
+    private WebElement editButton;
+
     public IssuePage(WebDriver driver, WebDriverWait wait){
         super(driver, wait);
     }
@@ -72,5 +75,10 @@ public class IssuePage extends BasePage{
     public String getErrorMessageText(){
         wait.until(ExpectedConditions.visibilityOf(errorMessage));
         return errorMessage.getText().replace("\n", " ").replace("\r", " ");
+    }
+
+    public void clickToEditButton(){
+        wait.until(ExpectedConditions.visibilityOf(editButton));
+        editButton.click();
     }
 }

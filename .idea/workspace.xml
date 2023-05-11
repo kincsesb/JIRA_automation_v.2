@@ -4,21 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2df61697-7025-4271-a338-be95f084c895" name="Changes" comment="Repair everything.">
+    <list default="true" id="2df61697-7025-4271-a338-be95f084c895" name="Changes" comment="Add browse issue and project and add basepage abstract class and create tests">
       <change afterPath="$PROJECT_DIR$/src/main/Névtelen táblázat.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/BasePage/BasePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/EditIssueTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Browse/BrowseRepository.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CreateIssue/CreateIssue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateIssue/CreateIssue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/IssuePage/IssuePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IssuePage/IssuePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LogOutPage/LogOutPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LogOutPage/LogOutPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Login/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Login/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/NavBar/NavBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NavBar/NavBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/issue_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/issue_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BrowseIssueTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BrowseIssueTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BrowseProjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BrowseProjectTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CreateIssueTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CreateIssueTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/LogOutTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LogOutTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LoginTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Browse/BrowseRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Login/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Login/LoginPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classpath.index" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/classpath.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/BrowseProjectTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/BrowseProjectTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/LogOutTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/LogOutTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/LoginTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/LoginTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,12 +71,12 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LoginTest.successfulLogin">
-    <configuration name="CreateIssueTest.CreateTestWithEmptySummary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.EditIssueTest.EditIssueFunctionalityTest">
+    <configuration name="BrowseIssueTest.SuccessfulIssueBrowse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="POM_KDT_With_Maven" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CreateIssueTest" />
-      <option name="METHOD_NAME" value="CreateTestWithEmptySummary" />
+      <option name="MAIN_CLASS_NAME" value="BrowseIssueTest" />
+      <option name="METHOD_NAME" value="SuccessfulIssueBrowse(java.lang.String,java.lang.String)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -103,11 +102,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.loginWithValidUsernameAndInvalidPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EditIssueTest.EditIssueFunctionalityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="POM_KDT_With_Maven" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="LoginTest" />
-      <option name="METHOD_NAME" value="loginWithValidUsernameAndInvalidPassword" />
+      <option name="MAIN_CLASS_NAME" value="EditIssueTest" />
+      <option name="METHOD_NAME" value="EditIssueFunctionalityTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -125,11 +124,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.EditIssueTest.EditIssueFunctionalityTest" />
+        <item itemvalue="JUnit.BrowseIssueTest.SuccessfulIssueBrowse" />
         <item itemvalue="JUnit.LoginTest.successfulLogin" />
         <item itemvalue="JUnit.CreateIssueTest.SuccessfulCreateIssueOnJETI" />
         <item itemvalue="JUnit.CreateIssueTest.SuccessfulCreateTaskOnMTP" />
-        <item itemvalue="JUnit.LoginTest.loginWithValidUsernameAndInvalidPassword" />
-        <item itemvalue="JUnit.CreateIssueTest.CreateTestWithEmptySummary" />
       </list>
     </recent_temporary>
   </component>
@@ -198,7 +197,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683701845111</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Add browse issue and project and add basepage abstract class and create tests">
+      <created>1683790235019</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1683790235019</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add browse issue and project and add basepage abstract class and create tests">
+      <created>1683790249007</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1683790249007</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -211,6 +224,7 @@
     <MESSAGE value="Add Create Issue tests and repository" />
     <MESSAGE value="Repair the project and issuetype in  CreateIssueRepository" />
     <MESSAGE value="Add browse issue test and update BrowseRepository and refactor the csvsource to csvfilesource and add the csv files." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add browse issue test and update BrowseRepository and refactor the csvsource to csvfilesource and add the csv files." />
+    <MESSAGE value="Add browse issue and project and add basepage abstract class and create tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add browse issue and project and add basepage abstract class and create tests" />
   </component>
 </project>

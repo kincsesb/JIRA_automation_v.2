@@ -3,17 +3,12 @@ import DriverManager.DriverManager;
 import IssuePage.IssuePage;
 import Login.LoginPage;
 import NavBar.NavBar;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;

@@ -27,6 +27,9 @@ public class CreateIssue extends BasePage{
     @FindBy(xpath = "//a[@class='issue-created-key issue-link']")
     private WebElement createIssuePopUp;
 
+    @FindBy(xpath = "//input[@id='edit-issue-submit']")
+    private WebElement updateIssueButton;
+
     public CreateIssue(WebDriver driver, WebDriverWait wait) {
         super(driver,wait);
     }
@@ -86,6 +89,12 @@ public class CreateIssue extends BasePage{
         issueTypeInputField.sendKeys(Keys.ENTER);
     }
 
+    public void clearTheSummary(){
+        wait.until(ExpectedConditions.elementToBeClickable(summaryInputFieldOnCreateScreen));
+        summaryInputFieldOnCreateScreen.click();
+        summaryInputFieldOnCreateScreen.clear();
+    }
+
     public void setSummaryOnCreateScreen(String summary) {
         wait.until(ExpectedConditions.elementToBeClickable(summaryInputFieldOnCreateScreen));
         summaryInputFieldOnCreateScreen.sendKeys(summary);
@@ -99,6 +108,11 @@ public class CreateIssue extends BasePage{
     public void clickToCreatedIssuePopUp(){
         wait.until(ExpectedConditions.elementToBeClickable(createIssuePopUp));
         createIssuePopUp.click();
+    }
+
+    public void clickToUpdateButton(){
+        wait.until(ExpectedConditions.visibilityOf(updateIssueButton));
+        updateIssueButton.click();
     }
 
     public void validateTheProject(String project){
