@@ -1,18 +1,12 @@
 package Login;
 
 import BasePage.BasePage;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import ConfigReader.ConfigReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 
 public class LoginPage extends BasePage {
 
@@ -33,19 +27,15 @@ public class LoginPage extends BasePage {
 
     @FindBy(xpath = "//div[@id='captcha']")
     private WebElement captchaDivOnLoginPage;
-
-    private FileInputStream fis = new FileInputStream(new File("/Users/kincsesbence/Desktop/TestAutomation_Module/JIRA_automation_v.2/src/main/Névtelen táblázat.xlsx"));
-    private Workbook workbook = new XSSFWorkbook(fis);
-    private Sheet sheet1 = workbook.getSheet("Users");
-
-
-    public LoginPage(WebDriver driver, WebDriverWait wait) throws IOException {
+    public ConfigReader configReader;
+    public LoginPage(WebDriver driver, WebDriverWait wait){
         super(driver, wait);
+        configReader = new ConfigReader();
     }
 
 
     public void navigateToTheLoginPage(WebDriver driver) {
-        driver.get("https://jira-auto.codecool.metastage.net/secure/Dashboard.jspa");
+        driver.get(BaseUrl);
     }
 
     public void setUserName(String userName) {
@@ -80,8 +70,8 @@ public class LoginPage extends BasePage {
 
     public void successfulLogIn() {
 
-        String userName = sheet1.getRow(1).getCell(0).toString();
-        String password = sheet1.getRow(1).getCell(1).toString();
+        String userName = configReader.getUsername();
+        String password = configReader.getPassword();
 
         setUserName(userName);
         setPassword(password);

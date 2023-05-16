@@ -96,7 +96,7 @@ public class CreateIssue extends BasePage{
     }
 
     public void setSummaryOnCreateScreen(String summary) {
-        wait.until(ExpectedConditions.elementToBeClickable(summaryInputFieldOnCreateScreen));
+        wait.until(ExpectedConditions.visibilityOf(summaryInputFieldOnCreateScreen));
         summaryInputFieldOnCreateScreen.sendKeys(summary);
     }
 

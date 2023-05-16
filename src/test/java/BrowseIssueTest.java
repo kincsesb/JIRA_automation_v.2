@@ -1,7 +1,7 @@
 import DriverManager.DriverManager;
 import IssuePage.IssuePage;
 import Login.LoginPage;
-import Utils.Utility;
+import Utility.Utility;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -17,7 +17,7 @@ public class BrowseIssueTest {
     private Utility utility;
 
     @BeforeEach
-    public void SetUp() throws IOException {
+    public void SetUp(){
         driverManager = new DriverManager();
         loginPage = new LoginPage(driverManager.getDriver(), driverManager.getWait());
         issuePage = new IssuePage(driverManager.getDriver(), driverManager.getWait());
@@ -35,7 +35,7 @@ public class BrowseIssueTest {
     @CsvFileSource(resources = "/issue_data.csv", numLinesToSkip = 0)
     public void SuccessfulIssueBrowse(String url, String expectedIssueId) {
 
-        utility.navigateToUrl(url);
+        utility.navigateToUrl(loginPage.BaseUrl + url);
 
         assertEquals(issuePage.checkIssueId(), expectedIssueId);
     }
@@ -44,7 +44,7 @@ public class BrowseIssueTest {
     @CsvFileSource(resources = "/non_existing_issues.csv", numLinesToSkip = 0)
     public void BrowseNonExistingOrDeletedIssue(String url, String expectedError) {
 
-        utility.navigateToUrl(url);
+        utility.navigateToUrl(loginPage.BaseUrl + url);
 
         assertEquals(issuePage.getErrorMessageText(), expectedError);
 

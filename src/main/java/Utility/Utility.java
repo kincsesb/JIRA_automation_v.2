@@ -1,4 +1,4 @@
-package Utils;
+package Utility;
 
 import Login.LoginPage;
 import BasePage.BasePage;

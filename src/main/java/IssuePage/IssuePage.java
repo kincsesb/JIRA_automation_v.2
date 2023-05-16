@@ -33,10 +33,6 @@ public class IssuePage extends BasePage{
         super(driver, wait);
     }
 
-    public String getText(WebElement element){
-        return element.getText();
-    }
-
     public String getSummary(){
         wait.until(ExpectedConditions.visibilityOf(summaryOnCreatedIssue));
         return summaryOnCreatedIssue.getText();
@@ -53,17 +49,17 @@ public class IssuePage extends BasePage{
     }
 
     public void clickToMoreButton(){
-        wait.until(ExpectedConditions.visibilityOf(moreButton));
+        wait.until(ExpectedConditions.elementToBeClickable(moreButton));
         moreButton.click();
     }
 
     public void clickToDeleteOption(){
-        wait.until(ExpectedConditions.visibilityOf(deleteOption));
+        wait.until(ExpectedConditions.elementToBeClickable(deleteOption));
         deleteOption.click();
     }
 
     public void clickToConfirmDelete(){
-        wait.until(ExpectedConditions.visibilityOf(confirmTheDelete));
+        wait.until(ExpectedConditions.elementToBeClickable(confirmTheDelete));
         confirmTheDelete.click();
     }
 

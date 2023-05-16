@@ -8,6 +8,8 @@ public abstract class BasePage {
 
     protected WebDriverWait wait;
     protected WebDriver driver;
+    public String BaseUrl = "https://jira-auto.codecool.metastage.net/";
+
     public BasePage(WebDriver driver, WebDriverWait wait) {
         this.wait = wait;
         this.driver = driver;

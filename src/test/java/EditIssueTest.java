@@ -7,8 +7,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-
 import static org.junit.Assert.assertEquals;
 
 public class EditIssueTest {
@@ -20,7 +18,7 @@ public class EditIssueTest {
     private DriverManager driverManager;
 
     @BeforeEach
-    public void SetUp() throws IOException {
+    public void SetUp(){
         driverManager = new DriverManager();
         createIssue = new CreateIssue(driverManager.getDriver(),driverManager.getWait());
         loginPage = new LoginPage(driverManager.getDriver(), driverManager.getWait());
@@ -58,7 +56,7 @@ public class EditIssueTest {
         issuePage.clickToDeleteOption();
         issuePage.clickToConfirmDelete();
 
-        assertEquals(issueType,"Bug");
         assertEquals(summary,"asf321group9jwr321");
+        assertEquals(issueType,"Bug");
     }
 }

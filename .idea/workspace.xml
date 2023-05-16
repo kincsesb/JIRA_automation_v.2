@@ -4,20 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2df61697-7025-4271-a338-be95f084c895" name="Changes" comment="Add browse issue and project and add basepage abstract class and create tests">
-      <change afterPath="$PROJECT_DIR$/src/main/Névtelen táblázat.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/EditIssueTest.java" afterDir="false" />
+    <list default="true" id="2df61697-7025-4271-a338-be95f084c895" name="Changes" comment="Add edit issue test">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ConfigReader/ConfigReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/LoginSteps/LoginStepDefinitions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RunCucumberTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/login.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BasePage/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BasePage/BasePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CreateIssue/CreateIssue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateIssue/CreateIssue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/IssuePage/IssuePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IssuePage/IssuePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Login/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Login/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utility/Utility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/browse_project.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/browse_project.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/issue_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/issue_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/non_existing_issues.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/non_existing_issues.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/project_summary_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/project_summary_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BrowseIssueTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BrowseIssueTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BrowseProjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BrowseProjectTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/CreateIssueTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CreateIssueTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/EditIssueTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/EditIssueTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/LogOutTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LogOutTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Browse/BrowseRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LoginTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Login/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Login/LoginPage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/classpath.index" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/classpath.index" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/BrowseProjectTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/BrowseProjectTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/LogOutTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/LogOutTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/LoginTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/LoginTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/classpath.index" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/classpath.index" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,15 +77,23 @@
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Facets&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/test/resources" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.EditIssueTest.EditIssueFunctionalityTest">
+  <component name="RunManager" selected="JUnit.BrowseIssueTest.SuccessfulIssueBrowse">
     <configuration name="BrowseIssueTest.SuccessfulIssueBrowse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="POM_KDT_With_Maven" />
       <option name="PACKAGE_NAME" value="" />
@@ -87,16 +109,6 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="CreateIssueTest" />
       <option name="METHOD_NAME" value="SuccessfulCreateIssueOnJETI(java.lang.String,java.lang.String,java.lang.String)" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CreateIssueTest.SuccessfulCreateTaskOnMTP" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="POM_KDT_With_Maven" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CreateIssueTest" />
-      <option name="METHOD_NAME" value="SuccessfulCreateTaskOnMTP(java.lang.String,java.lang.String,java.lang.String)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -122,13 +134,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RunCucumberTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="POM_KDT_With_Maven" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RunCucumberTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.EditIssueTest.EditIssueFunctionalityTest" />
         <item itemvalue="JUnit.BrowseIssueTest.SuccessfulIssueBrowse" />
+        <item itemvalue="JUnit.RunCucumberTest" />
+        <item itemvalue="JUnit.EditIssueTest.EditIssueFunctionalityTest" />
         <item itemvalue="JUnit.LoginTest.successfulLogin" />
         <item itemvalue="JUnit.CreateIssueTest.SuccessfulCreateIssueOnJETI" />
-        <item itemvalue="JUnit.CreateIssueTest.SuccessfulCreateTaskOnMTP" />
       </list>
     </recent_temporary>
   </component>
@@ -211,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683790249007</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Add edit issue test">
+      <created>1683792266580</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1683792266580</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -225,6 +253,7 @@
     <MESSAGE value="Repair the project and issuetype in  CreateIssueRepository" />
     <MESSAGE value="Add browse issue test and update BrowseRepository and refactor the csvsource to csvfilesource and add the csv files." />
     <MESSAGE value="Add browse issue and project and add basepage abstract class and create tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add browse issue and project and add basepage abstract class and create tests" />
+    <MESSAGE value="Add edit issue test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add edit issue test" />
   </component>
 </project>

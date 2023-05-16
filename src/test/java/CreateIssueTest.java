@@ -9,8 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
-import java.io.IOException;
-
 import static org.junit.Assert.assertEquals;
 
 public class CreateIssueTest {
@@ -21,7 +19,7 @@ public class CreateIssueTest {
     private DriverManager driverManager;
 
     @BeforeEach
-    public void SetUp() throws IOException {
+    public void SetUp(){
         driverManager = new DriverManager();
         createIssue = new CreateIssue(driverManager.getDriver(),driverManager.getWait());
         loginPage = new LoginPage(driverManager.getDriver(), driverManager.getWait());
@@ -45,6 +43,7 @@ public class CreateIssueTest {
         createIssue.setSummaryOnCreateScreen(summary);
         createIssue.clickToSubmitTheCreateIssue();
         createIssue.clickToCreatedIssuePopUp();
+
         String type = issuePage.getIssueType();
         String project = issuePage.getProject();
         String summ = issuePage.getSummary();
