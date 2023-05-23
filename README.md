@@ -1,6 +1,6 @@
-Hi 👋, I'm Bence,
+Hi 👋,
 
-👨‍💻 I'm currently working on this project so if you find something wrong please forgive me.
+👨‍💻 We are currently working on this project so if you find something wrong please forgive us.
 
 📝 These are some of the automated tests that we did based on the manual tests we wrote earlier.
 
