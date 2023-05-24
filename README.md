@@ -1,6 +1,6 @@
 ## Hi there! 👋
 
-🔭 Our team is currently working diligently on this project, so please bear with us if you come across any inconsistencies.
+🔭 Our team has completed this project following a rigorous schedule. However, as it is a complex and evolving work, please bear with us if you encounter any inconsistencies or errors. We appreciate your understanding as we continue to refine and improve our work.
 
 📝 This repository contains a series of automated tests that we've developed based on previously written manual tests.
 
